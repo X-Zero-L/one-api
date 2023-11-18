@@ -34,7 +34,7 @@ def replace_keys_in_repository(repo_path, json_file_path):
     pairs.sort(key=lambda x: len(x[0]), reverse=True)
 
     files = list_file_paths(repo_path)
-    print('Total files: {}'.format(len(files)))
+    print(f'Total files: {len(files)}')
     for file_path in files:
         replace_keys_in_file(file_path, pairs)
 
@@ -50,7 +50,7 @@ def replace_keys_in_file(file_path, pairs):
         with open(file_path, 'w', encoding="utf-8") as file:
             file.write(content)
     except UnicodeDecodeError:
-        print('UnicodeDecodeError: {}'.format(file_path))
+        print(f'UnicodeDecodeError: {file_path}')
 
 
 if __name__ == "__main__":
